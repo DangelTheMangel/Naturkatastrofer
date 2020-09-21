@@ -17,8 +17,10 @@ public class DataBroker extends PApplet {
     public void loadData(){
 
         for(int i = 1; i < data.getRowCount(); ++i){
-            for(int j = 3; j < data.getColumnCount(); ++j){
-            Datalist.add(new Data(data.getString( i ,"Country Name"),data.getInt(1, j) ,data.getInt(i, j) ));
+            for(int j = 2; j < data.getColumnCount(); ++j){
+
+            Datalist.add(new Data(data.getString( i ,1),data.getInt(1, j) ,data.getInt(i, j) ));
+            println("land: " + data.getString( i ,1) + " år: " + data.getInt(0, j) + " døde: " + data.getInt(i, j));
             }
         }
     }

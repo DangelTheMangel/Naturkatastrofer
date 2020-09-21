@@ -7,6 +7,7 @@ public class landeogkatastrofer extends PApplet {
 
 DataBroker data;
 Table table;
+Table table2;
 
     public static void main(String[] args) { PApplet.main("landeogkatastrofer"); }
 
@@ -18,6 +19,13 @@ Table table;
         data.loadData();
 
         println(data.getData("ALBANIA",table.getInt(1,(int)random(4,table.getColumnCount()))));
+
+
+
+    }
+
+    @Override
+    public void draw() {
 
     }
 }
