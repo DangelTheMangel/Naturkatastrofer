@@ -6,7 +6,7 @@ public class TextFlet {
     float positionX, positionY, sizeX, sizeY;
     float mouseX, mouseY;
     String textFletNavn;
-    String indput;
+    String indput; //dit navn består af en masse bogstaver <3
 
     boolean klikket = false;
 
@@ -31,9 +31,9 @@ public class TextFlet {
                     mouseX < positionX + sizeX &&
                     mouseY > positionY &&
                     mouseY < positionY + sizeY) {
-                //gør tekstfelt her
+                klikket=true;
             }else {
-                //deselect tekstfelt
+                klikket=false;
             }
         }
     }
@@ -43,6 +43,12 @@ public class TextFlet {
         p.stroke(1, 46, 74, 100);
         p.fill(227, 225, 252, 250);
         p.rect(positionX, positionY, sizeX, sizeY);
+
+        if(klikket){
+            if(p.keyPressed){
+                indput = indput + p.key;
+            }
+        }
     }
 
 
