@@ -43,6 +43,7 @@ Table table2;
 
     @Override
     public void keyPressed() {
-        text.keyindput();
+        text.keyindput(key);
+        //print(key);
     }
 }

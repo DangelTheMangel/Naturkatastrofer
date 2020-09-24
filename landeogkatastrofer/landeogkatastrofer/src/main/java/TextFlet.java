@@ -26,15 +26,11 @@ public class TextFlet {
     void KlikTjek(float mouseX, float mouseY) {
         this.mouseX = mouseX;
         this.mouseY = mouseY;
-        if (p.mousePressed){
-            if(     mouseX > positionX &&
-                    mouseX < positionX + sizeX &&
-                    mouseY > positionY &&
-                    mouseY < positionY + sizeY) {
-                klikket=true;
-            }else {
-                klikket=false;
-            }
+        if (mouseX > positionX &&
+                mouseX < positionX + sizeX &&
+                mouseY > positionY &&
+                mouseY < positionY + sizeY) {
+            klikket = !klikket;
         }
     }
 
@@ -46,11 +42,10 @@ public class TextFlet {
 
     }
 
-    void keyindput(){
+    void keyindput(char key){
+
         if(klikket){
-            if(p.keyPressed){
-                indput = indput + p.key;
-            }
+            indput = indput + key;
         }
         p.println(indput);
     }
