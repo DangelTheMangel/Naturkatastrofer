@@ -5,7 +5,9 @@ public class TextFlet {
     //variabler
     float positionX, positionY, sizeX, sizeY;
     float mouseX, mouseY;
-    String text;
+    String textFletNavn;
+    String indput;
+
     boolean klikket = false;
 
 
@@ -17,17 +19,19 @@ public class TextFlet {
         positionY = posY;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        this.text = text;
+        this.textFletNavn = text;
 
     }
 
-    void KlikTjek() {
+    void KlikTjek(float mouseX, float mouseY) {
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
         if (p.mousePressed){
             if(     mouseX > positionX &&
                     mouseX < positionX + sizeX &&
                     mouseY > positionY &&
                     mouseY < positionY + sizeY) {
-            //gør tekstfelt her
+                //gør tekstfelt her
             }else {
                 //deselect tekstfelt
             }
@@ -35,22 +39,13 @@ public class TextFlet {
     }
 
 
-    void tegnKnap() {
+    void tegnTextFlet() {
         p.stroke(1, 46, 74, 100);
         p.fill(227, 225, 252, 250);
         p.rect(positionX, positionY, sizeX, sizeY);
     }
 
-    void registrerKlik(float mouseX, float mouseY) {
-        this.mouseX = mouseX;
-        this.mouseY = mouseY;
-        if (mouseX > positionX &&
-                mouseX < positionX + sizeX &&
-                mouseY > positionY &&
-                mouseY < positionY + sizeY) {
-            klikket = !klikket;
-        }
-    }
+
 
 
 }
