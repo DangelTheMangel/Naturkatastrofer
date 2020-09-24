@@ -42,7 +42,7 @@ Table table2;
     }
 
     @Override
-    public void keyPressed() {
+    public void keyTyped() {
         text.keyindput(key);
 
     }

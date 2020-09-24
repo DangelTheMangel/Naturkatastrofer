@@ -47,10 +47,17 @@ public class TextFlet {
     void keyindput(char key){
 
         if(klikket){
-            indput = indput + key;
+            if(key == p.BACKSPACE){
+
+                indput =indput.substring(0,indput.length()-1);
+            } else{
+                indput = indput + key;
+            }
+
         }
         p.println(indput);
     }
+
 
 
 
