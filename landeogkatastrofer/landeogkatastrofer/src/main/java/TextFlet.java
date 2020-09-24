@@ -21,12 +21,16 @@ public class TextFlet {
 
     }
 
-    void klik() {
-        if (p.mousePressed &&
-                mouseX > positionX &&
-                mouseX < positionX + sizeX &&
-                mouseY > positionY &&
-                mouseY < positionY + sizeY) {
+    void KlikTjek() {
+        if (p.mousePressed){
+            if(     mouseX > positionX &&
+                    mouseX < positionX + sizeX &&
+                    mouseY > positionY &&
+                    mouseY < positionY + sizeY) {
+            //gør tekstfelt her
+            }else {
+                //deselect tekstfelt
+            }
         }
     }
 
@@ -35,7 +39,6 @@ public class TextFlet {
         p.stroke(1, 46, 74, 100);
         p.fill(227, 225, 252, 250);
         p.rect(positionX, positionY, sizeX, sizeY);
-        setTekst(text);
     }
 
     void registrerKlik(float mouseX, float mouseY) {
@@ -48,9 +51,6 @@ public class TextFlet {
             klikket = !klikket;
         }
     }
-
-
-}
 
 
 }
