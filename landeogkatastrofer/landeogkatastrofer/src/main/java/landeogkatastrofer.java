@@ -44,6 +44,6 @@ Table table2;
     @Override
     public void keyPressed() {
         text.keyindput(key);
-        //print(key);
+
     }
 }

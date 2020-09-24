@@ -39,6 +39,8 @@ public class TextFlet {
         p.stroke(1, 46, 74, 100);
         p.fill(227, 225, 252, 250);
         p.rect(positionX, positionY, sizeX, sizeY);
+        p.fill(0);
+        p.text(indput, positionX +(sizeX/16), positionY + (sizeY/2));
 
     }
 
