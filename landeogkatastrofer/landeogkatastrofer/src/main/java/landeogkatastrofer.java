@@ -6,9 +6,10 @@ import java.util.ArrayList;
 public class landeogkatastrofer extends PApplet {
 
 DataBroker data;
-TextFlet text;
+TextFlet lande;
+TextFlet aar;
 Table table;
-Table table2;
+
 
     public static void main(String[] args) { PApplet.main("landeogkatastrofer"); }
 
@@ -23,27 +24,39 @@ Table table2;
         data = new DataBroker(this, table );
 
         data.loadData();
-        text = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 + (((width / 13)))), width / 2, height / 12, "Play");
-        println(data.getData("ALBANIA",table.getInt(1,(int)random(4,table.getColumnCount()))));
-
-
-
+        lande = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 ), width / 2, height / 12, "Land");
+        aar = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 + (((width / 13)+ height / 12))), width / 2, height / 12, "År");
+        aar.setAcceptLetter(false);
+        println(data.getData("ZIMBABWE", 1975));
     }
 
     @Override
     public void draw() {
-       text.tegnTextFlet();
+        clear();
+        background(200);
+        lande.tegnTextFlet();
+        aar.tegnTextFlet();
+
+        //text(myString);
+        int aarInt = 0;
+        if (aar.indput.length() > 0)
+            aarInt = Integer.parseInt(aar.indput);
+
+        text("Land: " + lande.indput + "\nÅR: " + aar.indput + "\nDøde: " + data.getData(lande.indput, aarInt),width / 4, (height / 12 + height / 6)*3 );
 
     }
 
     @Override
     public void mouseClicked() {
-        text.KlikTjek(mouseX,mouseY);
+        lande.KlikTjek(mouseX,mouseY);
+        aar.KlikTjek(mouseX,mouseY);
     }
 
     @Override
     public void keyTyped() {
-        text.keyindput(key);
-
+        lande.keyindput(key);
+        aar.keyindput(key);
+       // if (lande.indput == ENDENMÅVÆRE)
+        //    myString = text("Land: " + lande.indput + "\nÅR: " + aar.indput + "\nDøde: " + data.getData(lande.indput, Integer.parseInt(aar.indput)),width / 4, (height / 12 + height / 6)*3 );
     }
 }
