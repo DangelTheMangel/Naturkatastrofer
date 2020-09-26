@@ -27,7 +27,7 @@ Table table;
         lande = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 ), width / 2, height / 12, "Land");
         aar = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 + (((width / 13)+ height / 12))), width / 2, height / 12, "År");
         aar.setAcceptLetter(false);
-        println(data.getData("ZIMBABWE", 1975));
+        println(data.getData("AFGHANISTAN", 2014));
     }
 
     @Override

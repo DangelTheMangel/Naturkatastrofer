@@ -1,8 +1,8 @@
 public class Data {
 
-    String name;
-    int Year;
-    int Death;
+    public String name;
+    public int Year;
+    public int Death;
 
     Data(String name, int Year, int Death){
         this.Death = Death;

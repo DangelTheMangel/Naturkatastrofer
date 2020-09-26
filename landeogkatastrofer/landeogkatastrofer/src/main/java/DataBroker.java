@@ -18,16 +18,22 @@ public class DataBroker extends PApplet {
 
         for(int i = 1; i < data.getRowCount(); ++i){
             for(int j = 2; j < data.getColumnCount(); ++j) {
-
-                Datalist.add(new Data(data.getString( i ,1),data.getInt(1, j), data.getInt(i, j) ));
-                println("land: " + data.getString( i ,1) + " år: " + data.getInt(0, j) + " døde: " + data.getInt(i, j));
+                String country = data.getString( i ,1);
+                int year = data.getInt(0, j);
+                int deaths = data.getInt(i, j);
+                Data myData = new Data(country, year, deaths);
+                //Datalist.add(new Data(data.getString( i ,1),data.getInt(1, j), data.getInt(i, j) ));
+                Datalist.add(myData);
+                //println("land: " + data.getString( i ,1) + " år: " + data.getInt(0, j) + " døde: " + data.getInt(i, j));
+                println("land: " + myData.name + " år: " + myData.Year + " døde: " + myData.Death);
             }
         }
     }
-    public int getData(String ContryName, int Year){
+    public int getData(String countryName, int Year){
         int a = 0;
         for(int i = 0; i < Datalist.size(); ++i) {
-            if( ContryName == Datalist.get(i).name && Year == Datalist.get(i).Year) {
+            Data data = Datalist.get(i);
+            if(countryName.equalsIgnoreCase(data.name) && Year == data.Year) {
                 a = Datalist.get(i).Death;
             }
         }
