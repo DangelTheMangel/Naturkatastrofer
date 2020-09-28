@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class landeogkatastrofer extends PApplet {
 
 DataBroker data;
+String Infofelt = "Land: " + "\nÅR: " +  "\nDøde: ";
 TextFlet lande;
 TextFlet aar;
 Table table;
@@ -37,12 +38,7 @@ Table table;
         lande.tegnTextFlet();
         aar.tegnTextFlet();
 
-        //text(myString);
-        int aarInt = 0;
-        if (aar.indput.length() > 0)
-            aarInt = Integer.parseInt(aar.indput);
-
-        text("Land: " + lande.indput + "\nÅR: " + aar.indput + "\nDøde: " + data.getData(lande.indput, aarInt),width / 4, (height / 12 + height / 6)*3 );
+        text(Infofelt,width / 4, (height / 12 + height / 6)*3 );
 
     }
 
@@ -56,7 +52,10 @@ Table table;
     public void keyTyped() {
         lande.keyindput(key);
         aar.keyindput(key);
-       // if (lande.indput == ENDENMÅVÆRE)
-        //    myString = text("Land: " + lande.indput + "\nÅR: " + aar.indput + "\nDøde: " + data.getData(lande.indput, Integer.parseInt(aar.indput)),width / 4, (height / 12 + height / 6)*3 );
+        int aarInt = 0;
+        if (aar.indput.length() > 0)
+            aarInt = Integer.parseInt(aar.indput);
+        Infofelt = "Land: " + lande.indput + "\nÅR: " + aar.indput + "\nDøde: " + data.getData(lande.indput, aarInt);
+
     }
 }

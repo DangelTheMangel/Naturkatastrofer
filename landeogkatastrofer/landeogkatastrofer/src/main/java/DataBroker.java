@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class DataBroker extends PApplet {
     PApplet p;
     Table data;
+
     ArrayList<Data> Datalist = new ArrayList<Data>();
 
     DataBroker(PApplet p, Table data){
@@ -22,9 +23,7 @@ public class DataBroker extends PApplet {
                 int year = data.getInt(0, j);
                 int deaths = data.getInt(i, j);
                 Data myData = new Data(country, year, deaths);
-                //Datalist.add(new Data(data.getString( i ,1),data.getInt(1, j), data.getInt(i, j) ));
                 Datalist.add(myData);
-                //println("land: " + data.getString( i ,1) + " år: " + data.getInt(0, j) + " døde: " + data.getInt(i, j));
                 println("land: " + myData.name + " år: " + myData.Year + " døde: " + myData.Death);
             }
         }
