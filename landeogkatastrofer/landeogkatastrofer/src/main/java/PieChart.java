@@ -1,14 +1,21 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 public class PieChart {
     PApplet p;
     float[] angler;
+    int allDeaths;
+
 
     PieChart(PApplet p){
         this.p = p;
     }
-    void drawPieChart(){
+    void drawPieChart( ArrayList<Data> Datalist, String Name){
+        for(int i = 0;i < Datalist.size();++i){
+            allDeaths += Datalist.get(i).Death;
 
+        }
     }
 
     void Chart(float diameter, float[] data) {

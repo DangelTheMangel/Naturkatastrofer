@@ -39,5 +39,17 @@ public class DataBroker extends PApplet {
         return a;
     }
 
+    public ArrayList<Integer> getAllContryDeath(String countryName){
+        ArrayList<Integer> deathList = new ArrayList<Integer>;
+
+        for(int i = 0; i < Datalist.size(); ++i) {
+            Data data = Datalist.get(i);
+            if(countryName.equalsIgnoreCase(data.name)) {
+                deathList.add(Datalist.get(i).Death);
+            }
+        }
+        return deathList;
+    }
+
 
 }
