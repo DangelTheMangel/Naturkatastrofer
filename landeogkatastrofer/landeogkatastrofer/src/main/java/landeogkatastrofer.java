@@ -10,6 +10,7 @@ String Infofelt = "Land: " + "\nÅR: " +  "\nDøde: ";
 TextFlet lande;
 TextFlet aar;
 Table table;
+PieChart chart;
 
 
     public static void main(String[] args) { PApplet.main("landeogkatastrofer"); }
