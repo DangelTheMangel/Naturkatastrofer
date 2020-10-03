@@ -4,11 +4,11 @@ import processing.data.Table;
 import java.util.ArrayList;
 
 
-public class DataBroker extends PApplet {
+public class DataBroker<data> extends PApplet {
     PApplet p;
     Table data;
 
-    ArrayList<Data> Datalist = new ArrayList<Data>();
+   public ArrayList<Data> Datalist = new ArrayList<Data>();
 
     DataBroker(PApplet p, Table data){
         this.p = p;
@@ -40,15 +40,20 @@ public class DataBroker extends PApplet {
     }
 
     public ArrayList<Integer> getAllContryDeath(String countryName){
-        ArrayList<Integer> deathList = new ArrayList<Integer>;
+        ArrayList<Integer> deathList = new ArrayList<Integer>();
 
         for(int i = 0; i < Datalist.size(); ++i) {
             Data data = Datalist.get(i);
             if(countryName.equalsIgnoreCase(data.name)) {
                 deathList.add(Datalist.get(i).Death);
+                System.out.println(Datalist.get(i).Death);
             }
         }
         return deathList;
+    }
+
+    public ArrayList<data> dataArrayList(){
+        return (ArrayList<data>) Datalist;
     }
 
 

@@ -10,6 +10,7 @@ String Infofelt = "Land: " + "\nÅR: " +  "\nDøde: ";
 TextFlet lande;
 TextFlet aar;
 Table table;
+Plot plot;
 PieChart chart = new PieChart(this);
 
 
@@ -17,7 +18,7 @@ PieChart chart = new PieChart(this);
 
     @Override
     public void settings() {
-        size(500,500);
+        size(1280,720);
     }
 
     @Override
@@ -26,9 +27,10 @@ PieChart chart = new PieChart(this);
         data = new DataBroker(this, table );
 
         data.loadData();
-        lande = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 ), width / 2, height / 12, "Land");
-        aar = new TextFlet(this,  width / 4, (int) (height / 12 + height / 6 + (((width / 13)+ height / 12))), width / 2, height / 12, "År");
+        lande = new TextFlet(this,  width / 12, (int) (height / 12  ), width / 4, height / 12, "Land");
+        aar = new TextFlet(this,  width / 12, (int) (height / 12  + ( height / 9)), width / 4, height / 12, "År");
         aar.setAcceptLetter(false);
+        plot = new Plot(this,width/8, height/3, (width - width/4), height/2);
         println(data.getData("AFGHANISTAN", 2014));
     }
 
@@ -36,11 +38,13 @@ PieChart chart = new PieChart(this);
     public void draw() {
         clear();
         background(200);
+        plot.draw();
         lande.tegnTextFlet();
         aar.tegnTextFlet();
 
-        text(Infofelt,width / 4, (height / 12 + height / 6)*3 );
-        chart.drawPieChart(data.Datalist.);
+        text(Infofelt,width - width / 4, height / 12  );
+        //chart.drawPieChart(data.Datalist);
+
 
     }
 
