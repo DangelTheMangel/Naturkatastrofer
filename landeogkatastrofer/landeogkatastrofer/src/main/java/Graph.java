@@ -34,8 +34,9 @@ public class Graph  {
         x1 = 0;
         y1 = ySize;
 
+
         for (int i=0; i<IndputList.size(); ++i) {
-            if(IndputList == null) {}else{
+
                 int maxList = 0;
                 for (int j = 0; j < IndputList.size(); ++j) {
                     if (IndputList.get(j).Death > maxList) {
@@ -46,7 +47,7 @@ public class Graph  {
                 xInt = xSize/IndputList.size();
                 yInt = (float) ySize/maxY;
 
-            }
+
             x2 = (int) xInt * i;
             y2 = ySize - ((int) (IndputList.get(i).Death * yInt));
             pApplet.stroke(0);

@@ -52,6 +52,7 @@ public class Plot {
                 deathGraph.linesOn = !deathGraph.linesOn;
                 btnShowLines.registrerRelease();
             }
+            checkMouseCoordinates();
 
         }
         if(btnShowPiChart.klikket){
@@ -105,30 +106,29 @@ public class Plot {
         }
     }
 
-    void checkMouseCoordinates(int mouseX, int mouseY){
+    void checkMouseCoordinates(){
 
-    /*    int row = deathGraph.getRowFromMouse(mouseX, mouseY);
-        if(row > 0 && row < table.getRowCount()) {
+       int row = deathGraph.getRowFromMouse(p.mouseX, p.mouseY);
+        if(row > 0 && row < selectetContryList.size()) {
             p.stroke(1, 46, 74);
             p.fill(174, 200, 245);
-            p.rect(mouseX, mouseY, 200,100);
+            p.rect(p.mouseX, p.mouseY, 200,100);
             p.fill(1, 46, 74);
 
-            String msgDeaths = table.getString(row,2);
-            String msgDate = table.getString(row,0);
-            String msgCases = table.getString(row,1);
+            int msgDeaths = selectetContryList.get(row).Death;
+            int msgDate = selectetContryList.get(row).Year;
+            String msgName = selectetContryList.get(row).name;
 
-            p.text("date: " + msgDate , mouseX + 10, mouseY + 30);
-            p.text("cases: " + msgCases, mouseX + 10, mouseY + 50);
-            p.text("deaths: " + msgDeaths, mouseX + 10, mouseY + 70);
+            p.text("Year: " + msgDate , p.mouseX + 10, p.mouseY + 30);
+            p.text("Name: " + msgName, p.mouseX + 10, p.mouseY + 50);
+            p.text("Deaths: " + msgDeaths, p.mouseX + 10, p.mouseY + 70);
 
-            int x2 = (int) deathGraph.getXInt() * row;
-            int y2 = ySize - ((int) (table.getInt(row,1) * deathGraph.getYInt()));
-            int y1 = ySize - ((int) (table.getInt(row,2) * deathGraph.getYInt()));
+            int x1 = (int) deathGraph.getXInt() * row;
+            int y1 = ySize - ((int) (selectetContryList.get(row).Death * deathGraph.getYInt()));
 
-            p.ellipse(x2 + posX, y2 + posY,10,10);
-            p.ellipse(x2 + posX, y1 + posY,10,10);
-        }*/
+            p.ellipse(x1 + posX, y1 + posY,10,10);
+
+        }
 
     }
     }
