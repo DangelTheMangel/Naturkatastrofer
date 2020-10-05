@@ -30,8 +30,7 @@ public class Axis {
         this.table = table;
         this.dataArrayList = dataArrayList;
 
-        for (int i=0; i<; ++i)
-            maxY = Math.max(table.getInt(i,1), maxY);
+
     }
 
     void draw() {
@@ -60,7 +59,7 @@ public class Axis {
             // Draw tick marks
             int yLow = y1 + minorTickLength/2;
             int yHi = y1 - minorTickLength/2;
-            for (int i=0; i<table.getRowCount(); ++i) {
+            for (int i=0; i<dataArrayList.size(); ++i) {
                 if (i % minorTick == 0) {
                     int x = x1 + (int) (xInt * i);
                     pApplet.line(x, yLow, x, yHi);

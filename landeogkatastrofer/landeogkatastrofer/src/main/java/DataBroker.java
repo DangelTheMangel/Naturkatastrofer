@@ -52,9 +52,7 @@ public class DataBroker<data> extends PApplet {
         return deathList;
     }
 
-    public ArrayList<data> dataArrayList(){
-        return (ArrayList<data>) Datalist;
-    }
+
 
 
 }
