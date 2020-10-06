@@ -1,16 +1,29 @@
-#Naturkatastrofer
+# Foobar
 
-##Opgavetitel:	
-Del.1+2+3: Naturkatastrofer
-###Opgavenote:
+Foobar is a Python library for dealing with word pluralization.
 
-###Del.3: 
-Der skal tilføjes en graf og en animation
-###Del.2: 
-Der skal tilføjes et inputfelt
-###Del.1.:
-Koden skal kunne hente data og have den forudbestemte objektorienterede struktur
-###Hold:	
-L 3i Pro
+## Installation
 
-Afleveringsfrist:	6/10-2020 23:00
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip install foobar
+```
+
+## Usage
+
+```python
+import foobar
+
+foobar.pluralize('word') # returns 'words'
+foobar.pluralize('goose') # returns 'geese'
+foobar.singularize('phenomena') # returns 'phenomenon'
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
