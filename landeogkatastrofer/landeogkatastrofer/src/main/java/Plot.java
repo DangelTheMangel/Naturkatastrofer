@@ -10,7 +10,7 @@ public class Plot {
     ProcGraph deathGraph;
     Axis xAxis;
     Axis yAxis;
-    AlmindeligKnap btnShowPGraph, btnShowPiChart, btnShowLines;
+    AlmindeligKnap btnShowProcGraph, btnShowBarCharts, btnShowLines;
 
     public ArrayList<Data> Datalist = new ArrayList<Data>() ;
     public ArrayList<Data> selectetContryList = new ArrayList<Data>();
@@ -27,19 +27,19 @@ public class Plot {
         Datalist.add(new Data("1",1,1));
         pillarChart = new PillarChart(p,this.posX, this.posY, this.xSize, this.ySize);
         deathGraph = new ProcGraph(p,this.posX, this.posY, this.xSize, this.ySize, 1);
-        btnShowPGraph = new AlmindeligKnap(p,p.width / 12 + p.width / 4 + 10, (int) (p.height / 12  + ( p.height / 9)), p.width / 12, p.height / 12, "Show graph");
-        btnShowPiChart = new AlmindeligKnap(p,(p.width /12)*2 + (p.width / 4) +  20 , (int) (p.height / 12  + ( p.height / 9)), p.width / 12, p.height / 12, "Pie chart");
+        btnShowProcGraph = new AlmindeligKnap(p,posX - 50, (int) (p.height / 12  + ( p.height / 9)), p.width / 12, p.height / 12, "Proc graph");
+        btnShowBarCharts = new AlmindeligKnap(p,posX - 50 + p.width / 12 + 20, (int) (p.height / 12  + ( p.height / 9)), p.width / 12, p.height / 12, "Bar charts");
         btnShowLines = new AlmindeligKnap(p,posX, posY+ySize + 20,p.width / 12 +20, p.height / 12 ,"Turn off lines");
         xAxis = new Axis (p, this.posX , this.posY + this.ySize, this.posX + this.xSize, this.posY + this.ySize, false, Datalist, deathGraph.xInt, deathGraph.yInt , 5);
         yAxis = new Axis (p, this.posX , posY + ySize , posX, posY, true, Datalist, deathGraph.xInt, deathGraph.yInt, 50000);
-        btnShowPGraph.klikket = true;
+        btnShowProcGraph.klikket = true;
     }
 
     void  draw(){
 
         p.fill(218, 228, 245);
         p.rect(posX  - 50, posY - 100, xSize + 100, ySize + 270 );
-        if(btnShowPGraph.klikket){
+        if(btnShowProcGraph.klikket){
             xAxis.maxY = deathGraph.maxY;
             yAxis.maxY = deathGraph.maxY;
             deathGraph.IndputList = selectetContryList;
@@ -57,7 +57,7 @@ public class Plot {
             checkMouseCoordinates();
 
         }
-        if(btnShowPiChart.klikket){
+        if(btnShowBarCharts.klikket){
             xAxis.maxY = deathGraph.maxY;
             yAxis.maxY = deathGraph.maxY;
 
@@ -74,8 +74,8 @@ public class Plot {
 
 
 
-        btnShowPGraph.tegnKnap();
-        btnShowPiChart.tegnKnap();
+        btnShowProcGraph.tegnKnap();
+        btnShowBarCharts.tegnKnap();
 
 
     }
@@ -102,13 +102,13 @@ public class Plot {
     public void clicked(float mx, float my){
 
 
-        btnShowPiChart.registrerKlik(mx,my);
-        if(btnShowPiChart.klikket){
-            btnShowPGraph.klikket = false;
+        btnShowBarCharts.registrerKlik(mx,my);
+        if(btnShowBarCharts.klikket){
+            btnShowProcGraph.klikket = false;
         }
-        btnShowPGraph.registrerKlik(mx,my);
-        if(btnShowPGraph.klikket){
-            btnShowPiChart.klikket = false;
+        btnShowProcGraph.registrerKlik(mx,my);
+        if(btnShowProcGraph.klikket){
+            btnShowBarCharts.klikket = false;
             btnShowLines.registrerKlik(mx, my);
         }
 

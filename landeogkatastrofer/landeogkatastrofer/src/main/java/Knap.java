@@ -41,7 +41,7 @@ public abstract class Knap {
         if(klikket){
             p.fill(255);
         }else{
-            p.fill(200);
+            p.fill(200,200,200,100);
         }
 
         p.rect(positionX, positionY, sizeX, sizeY);

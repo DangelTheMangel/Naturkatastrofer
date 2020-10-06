@@ -27,8 +27,8 @@ PieChart chart = new PieChart(this);
         data = new DataBroker(this, table );
 
         data.loadData();
-        lande = new TextFlet(this,  width / 12, (int) (height / 12  ), width / 4, height / 12, "Land");
-        aar = new TextFlet(this,  width / 12, (int) (height / 12  + ( height / 9)), width / 4, height / 12, "År");
+        lande = new TextFlet(this,  width / 12, (int) (height / 12  ), width / 4, height / 12, "Country");
+        aar = new TextFlet(this,  width / 12 + width / 4 + 20, (int) (height / 12  ) , width / 4, height / 12, "year");
         aar.setAcceptLetter(false);
         plot = new Plot(this,width/8, height/3, (width - width/4), height/2);
         println(data.getData("AFGHANISTAN", 2014));
