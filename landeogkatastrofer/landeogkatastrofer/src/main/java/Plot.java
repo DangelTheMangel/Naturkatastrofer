@@ -7,14 +7,15 @@ public class Plot {
     PApplet p;
     Table table;
     int xSize, ySize , posX, posY;
-    Graph deathGraph;
+    ProcGraph deathGraph;
     Axis xAxis;
     Axis yAxis;
     AlmindeligKnap btnShowPGraph, btnShowPiChart, btnShowLines;
 
     public ArrayList<Data> Datalist = new ArrayList<Data>() ;
     public ArrayList<Data> selectetContryList = new ArrayList<Data>();
-
+    PillarChart pillarChart;
+    String cName;
 
     Plot(PApplet app, int posX, int posY, int xSize, int ySize){
         p = app;
@@ -24,10 +25,11 @@ public class Plot {
         this.posX = posX;
         this.posY = posY;
         Datalist.add(new Data("1",1,1));
-        deathGraph = new Graph(p,this.posX, this.posY, this.xSize, this.ySize, 1);
+        pillarChart = new PillarChart(p,this.posX, this.posY, this.xSize, this.ySize);
+        deathGraph = new ProcGraph(p,this.posX, this.posY, this.xSize, this.ySize, 1);
         btnShowPGraph = new AlmindeligKnap(p,p.width / 12 + p.width / 4 + 10, (int) (p.height / 12  + ( p.height / 9)), p.width / 12, p.height / 12, "Show graph");
         btnShowPiChart = new AlmindeligKnap(p,(p.width /12)*2 + (p.width / 4) +  20 , (int) (p.height / 12  + ( p.height / 9)), p.width / 12, p.height / 12, "Pie chart");
-        btnShowLines = new AlmindeligKnap(p,posX, (int)(posY*2.5)+20,p.width / 12 +20, p.height / 12,"Turn off lines");
+        btnShowLines = new AlmindeligKnap(p,posX, posY+ySize + 20,p.width / 12 +20, p.height / 12 ,"Turn off lines");
         xAxis = new Axis (p, this.posX , this.posY + this.ySize, this.posX + this.xSize, this.posY + this.ySize, false, Datalist, deathGraph.xInt, deathGraph.yInt , 5);
         yAxis = new Axis (p, this.posX , posY + ySize , posX, posY, true, Datalist, deathGraph.xInt, deathGraph.yInt, 50000);
         btnShowPGraph.klikket = true;
@@ -56,8 +58,17 @@ public class Plot {
 
         }
         if(btnShowPiChart.klikket){
+            xAxis.maxY = deathGraph.maxY;
+            yAxis.maxY = deathGraph.maxY;
+
+            p.fill(255);
+            p.rect(posX, posY - 10, xSize + 10 , ySize + 10);
+            p.stroke(0);
             p.fill(0);
-            p.text("Comming soon!", p.width/2,p.height/2);
+            pillarChart.drawPillarChart(selectetContryList,cName);
+            xAxis.draw();
+            yAxis.draw();
+            checkMouseCoordinates();
         }
 
 
@@ -74,13 +85,15 @@ public class Plot {
            selectetContryList.clear();
         }
 
+
         Datalist = IndputList;
 
         for(int i = 0; i < Datalist.size(); ++i) {
             Data data = Datalist.get(i);
-            if(countryName.equalsIgnoreCase(data.name)) {
+             if(countryName.equalsIgnoreCase(data.name)) {
                 Data input = Datalist.get(i);
                 selectetContryList.add(new Data(data.name, data.Year, data.Death));
+                cName = countryName;
 
             }
         }

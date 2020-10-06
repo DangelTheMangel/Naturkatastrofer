@@ -61,7 +61,7 @@ PieChart chart = new PieChart(this);
         lande.keyindput(key);
         aar.keyindput(key);
         int aarInt = 0;
-        plot.deathGraph = new Graph(this,plot.posX, plot.posY, plot.xSize, plot.ySize, 1);
+        plot.deathGraph = new ProcGraph(this,plot.posX, plot.posY, plot.xSize, plot.ySize, 1);
         if (aar.indput.length() > 0)
             aarInt = Integer.parseInt(aar.indput);
         Infofelt = "Land: " + lande.indput + "\nÅR: " + aar.indput + "\nDøde: " + data.getData(lande.indput, aarInt);
